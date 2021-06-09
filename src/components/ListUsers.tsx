@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useActions } from './../redux/hooks/useActions';
 import { useTypedSelector } from './../redux/hooks/useTypedSelector';
 
-const ListUsers = () => {
+const ListUsers: React.FC = () => {
   const { getListUsers, getMoreListUsers } = useActions();
   const { data, loading, error, hasLoadMore, pages } = useTypedSelector(
     (state) => state.listUsers

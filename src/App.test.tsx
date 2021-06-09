@@ -9,7 +9,7 @@ test('renders heading text', () => {
   expect(headingElement).toBeInTheDocument();
 });
 
-it('Test request api is success', () => {
+test('Test request api is success', () => {
   fetchMock.restore();
   fetchMock.mock(`${process.env.REACT_APP_API_URL}/?results=20`, {
     status: 200,
