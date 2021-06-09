@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Card, Row, Col, Container } from 'react-bootstrap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useActions } from './../redux/hooks/useActions';
 import { useTypedSelector } from './../redux/hooks/useTypedSelector';
 
@@ -37,10 +38,10 @@ const ListUsers = () => {
             data?.map((user: any, i: any) => (
               <Col sm={12} md={6} xl={3} key={i}>
                 <Card className="mb-4">
-                  <Card.Img
-                    variant="top"
+                  <LazyLoadImage
+                    alt={`${user.name.first} ${user.name.last}`}
                     src={user.picture.thumbnail}
-                    height="180"
+                    height={'180'}
                   />
                   <Card.Body>
                     <Card.Title>
