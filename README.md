@@ -4,17 +4,17 @@ This is repository for answer of test given me
 
 ## Live demo
 
-[Simple App](https://turnkey-test.vercel.app/)
+[The Demo](https://turnkey-test.vercel.app/)
 
 ## Stack Used
 
 - React
 - Typescript
 - Redux
+- Redux Thunk
 - Fetch-mock
 - React bootstrap
-
-and others
+- Others
 
 ## How to use
 
