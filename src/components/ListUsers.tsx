@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Card, Row, Col, Container, Button } from 'react-bootstrap';
+import { Card, Row, Col, Container } from 'react-bootstrap';
 import { useActions } from './../redux/hooks/useActions';
 import { useTypedSelector } from './../redux/hooks/useTypedSelector';
 
@@ -16,27 +16,31 @@ const ListUsers = () => {
   return (
     <Container>
       <Row>
-        {data?.map((user: any, i: any) => (
-          <Col sm={12} md={6} xl={3} key={i}>
-            <Card className="mb-4">
-              <Card.Img
-                variant="top"
-                src={user.picture.thumbnail}
-                height="180"
-              />
-              <Card.Body>
-                <Card.Title>
-                  {user.name.first} {user.name.last}
-                </Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+        {error && <p className="text-center">{error}</p>}
+        {loading && <p className="text-center">Loading....</p>}
+        {!error &&
+          !loading &&
+          data?.map((user: any, i: any) => (
+            <Col sm={12} md={6} xl={3} key={i}>
+              <Card className="mb-4">
+                <Card.Img
+                  variant="top"
+                  src={user.picture.thumbnail}
+                  height="180"
+                />
+                <Card.Body>
+                  <Card.Title>
+                    {user.name.first} {user.name.last}
+                  </Card.Title>
+                  <ul>
+                    <li>Telephone : {user.phone}</li>
+                    <li>Email : {user.email}</li>
+                    <li>Location : {user.location.country}</li>
+                  </ul>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
       </Row>
     </Container>
   );

@@ -8,7 +8,7 @@ interface ListUserState {
 }
 
 const initialState = {
-  loading: false,
+  loading: true,
   data: [],
   error: null,
 };
@@ -19,7 +19,7 @@ const GetListUsersReducer = (
 ): ListUserState => {
   switch (action.type) {
     case ActionType.GET_LIST_USERS_SUCCESS:
-      return { loading: true, data: action.payload, error: null };
+      return { loading: false, data: action.payload, error: null };
     case ActionType.GET_LIST_USERS_ERROR:
       return { loading: false, data: [], error: action.payload };
     default:
